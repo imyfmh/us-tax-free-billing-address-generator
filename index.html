@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>美国免税账单地址生成器</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header>
+        <h1>美国免税账单地址生成器</h1>
+        <p>随机生成美国免税州账单信息（仅供测试与开发用途）</p>
+      </header>
+
+      <section class="controls">
+        <label for="state">免税州</label>
+        <select id="state"></select>
+        <button id="generateBtn">生成地址</button>
+        <button id="copyBtn" class="secondary">复制全部</button>
+      </section>
+
+      <section class="card">
+        <div class="field"><span>姓名</span><strong id="name">-</strong></div>
+        <div class="field"><span>电话</span><strong id="phone">-</strong></div>
+        <div class="field"><span>街道</span><strong id="street">-</strong></div>
+        <div class="field"><span>城市</span><strong id="city">-</strong></div>
+        <div class="field"><span>州</span><strong id="stateCode">-</strong></div>
+        <div class="field"><span>邮编</span><strong id="zip">-</strong></div>
+        <div class="field"><span>邮箱</span><strong id="email">-</strong></div>
+      </section>
+
+      <p id="message" class="message"></p>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
