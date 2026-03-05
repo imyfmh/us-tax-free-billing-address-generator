@@ -1,0 +1,32 @@
+{
+  "generatedAt": "2026-03-05T06:00:00.000Z",
+  "source": "seed",
+  "perState": 3,
+  "states": {
+    "AK": [
+      { "street": "3501 Denali St", "city": "Anchorage", "zip": "99503" },
+      { "street": "246 Main St", "city": "Juneau", "zip": "99801" },
+      { "street": "705 Cushman St", "city": "Fairbanks", "zip": "99701" }
+    ],
+    "DE": [
+      { "street": "1201 N Market St", "city": "Wilmington", "zip": "19801" },
+      { "street": "9 E Loockerman St", "city": "Dover", "zip": "19901" },
+      { "street": "72 E Main St", "city": "Newark", "zip": "19711" }
+    ],
+    "MT": [
+      { "street": "27 N 27th St", "city": "Billings", "zip": "59101" },
+      { "street": "101 E Front St", "city": "Missoula", "zip": "59801" },
+      { "street": "7 W Main St", "city": "Bozeman", "zip": "59715" }
+    ],
+    "NH": [
+      { "street": "1 City Hall Plz", "city": "Manchester", "zip": "03101" },
+      { "street": "229 Main St", "city": "Nashua", "zip": "03060" },
+      { "street": "41 Green St", "city": "Concord", "zip": "03301" }
+    ],
+    "OR": [
+      { "street": "1120 SW 5th Ave", "city": "Portland", "zip": "97204" },
+      { "street": "555 Liberty St SE", "city": "Salem", "zip": "97301" },
+      { "street": "777 Pearl St", "city": "Eugene", "zip": "97401" }
+    ]
+  }
+}

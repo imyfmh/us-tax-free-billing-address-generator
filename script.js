@@ -5,7 +5,7 @@ const taxFreeStates = {
   NH: { name: "New Hampshire", zips: ["03060", "03101", "03301", "03820", "03801"] },
   OR: { name: "Oregon", zips: ["97035", "97201", "97301", "97401", "97701"] },
 };
-const openAddressSamples = {
+const seedOpenAddressSamples = {
   AK: [
     { street: "3501 Denali St", city: "Anchorage", zip: "99503" },
     { street: "246 Main St", city: "Juneau", zip: "99801" },
@@ -32,6 +32,7 @@ const openAddressSamples = {
     { street: "777 Pearl St", city: "Eugene", zip: "97401" },
   ],
 };
+let openAddressSamples = seedOpenAddressSamples;
 const fallbackNames = [
   { firstName: "James", lastName: "Smith" },
   { firstName: "Mary", lastName: "Johnson" },
@@ -123,13 +124,43 @@ async function fetchAddressFromZippopotam(stateCode) {
 }
 
 function createAddressFromOpenAddresses(stateCode) {
-  const item = pickRandom(openAddressSamples[stateCode]);
+  const pool = openAddressSamples[stateCode] || seedOpenAddressSamples[stateCode] || [];
+  if (pool.length === 0) {
+    throw new Error("openaddresses empty");
+  }
+  const item = pickRandom(pool);
   return {
     street: item.street,
     city: item.city,
     stateCode,
     zip: item.zip,
   };
+}
+
+async function loadOpenAddressesSamples() {
+  try {
+    const response = await fetch("data/openaddresses-samples.json");
+    if (!response.ok) {
+      return;
+    }
+    const payload = await response.json();
+    const states = payload?.states;
+    if (!states) {
+      return;
+    }
+    const valid = {};
+    for (const stateCode of Object.keys(taxFreeStates)) {
+      const rows = Array.isArray(states[stateCode]) ? states[stateCode] : [];
+      valid[stateCode] = rows
+        .filter((item) => item?.street && item?.city && item?.zip)
+        .map((item) => ({
+          street: String(item.street),
+          city: String(item.city),
+          zip: String(item.zip),
+        }));
+    }
+    openAddressSamples = valid;
+  } catch {}
 }
 
 async function createAddress(stateCode, source) {
@@ -202,4 +233,6 @@ copyBtn.addEventListener("click", async () => {
   }
 });
 
-generateBtn.click();
+loadOpenAddressesSamples().finally(() => {
+  generateBtn.click();
+});
