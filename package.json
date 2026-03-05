@@ -1,0 +1,10 @@
+{
+  "name": "us-tax-free-billing-address-generator",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "update:oa": "node scripts/update-openaddresses.mjs",
+    "update:oa:file": "node scripts/update-openaddresses.mjs --input ./openaddresses.csv --per-state 40",
+    "update:oa:example": "node scripts/update-openaddresses.mjs --url \"$OA_URL\" --per-state 40"
+  }
+}

@@ -12,6 +12,18 @@
 
 脚本：`scripts/update-openaddresses.mjs`
 
+### 0) 一键命令（npm）
+
+```bash
+npm run update:oa -- --url "你的 OpenAddresses CSV 链接" --per-state 40
+```
+
+也可以：
+
+```bash
+OA_URL="你的 OpenAddresses CSV 链接" npm run update:oa:example
+```
+
 ### 1) 用在线 CSV 更新
 
 ```bash
