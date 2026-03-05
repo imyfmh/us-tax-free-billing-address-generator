@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-  width: min(720px, 92vw);
+  width: min(980px, 96vw);
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 18px 45px rgba(2, 6, 23, 0.12);
@@ -37,9 +37,13 @@ header p {
 .controls {
   margin: 22px 0;
   display: grid;
-  grid-template-columns: auto 1fr auto 1fr auto auto;
+  grid-template-columns: auto minmax(180px, 1fr) auto minmax(180px, 1fr) auto auto;
   gap: 10px;
   align-items: center;
+}
+
+.controls label {
+  white-space: nowrap;
 }
 
 select,
