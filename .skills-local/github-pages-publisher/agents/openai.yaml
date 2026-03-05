@@ -1,4 +1,0 @@
-interface:
-  display_name: "GitHub Pages Publisher"
-  short_description: "Auto publish repo and deploy GitHub Pages from ~/.pw token."
-  default_prompt: "After code changes, publish this project to GitHub and deploy GitHub Pages using token from ~/.pw."
